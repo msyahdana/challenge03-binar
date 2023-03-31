@@ -18,27 +18,33 @@ function TodoList({ search }) {
     setTodos(datas);
   }, []);
 
+  //menampilkan semua list
   const sortAll = () => {
     setType("");
   };
 
+  // menampilakn list yang selesai
   const sortDone = () => {
     setType("sortDone");
   };
 
+  //menampilakn list yang belum selesai
   const sortTodo = () => {
     setType("sortTodo");
   };
 
+  //menghapus semua list yang telah selesai
   const deleteDoneTask = () => {
     const donetask = todos.filter((todo) => !todo.complete);
     setTodos(donetask);
   };
 
+  //menghapus semua list
   const deleteAllTask = () => {
     setTodos([]);
   };
 
+  //mengupdate menghapus list dan mencoret list ketika sudah selesai
   const updateList = (type, id) => {
     if (type === "done") {
       let check = todos.map((todo) => {

@@ -10,6 +10,7 @@ function TodoInput() {
 
   const [task, setTask] = useState("");
 
+  //mendapatkan data baru dari inputan
   const onSubmit = (event) => {
     event.preventDefault();
 
