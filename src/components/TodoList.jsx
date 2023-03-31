@@ -103,7 +103,9 @@ function TodoList({ search }) {
                         <Card>
                           <Card.Body>
                             <Row>
-                              <Col>{data.complete ? <strike>{data.task}</strike> : <p>{data.task}</p>}</Col>
+                              <Col>
+                                <p>{data.complete ? <strike>{data.task}</strike> : <span>{data.task}</span>}</p>
+                              </Col>
                               <Col className="d-flex justify-content-end">
                                 <Stack direction="horizontal">
                                   <CheckboxList onclick={() => updateList("done", data.id)} />
@@ -128,7 +130,9 @@ function TodoList({ search }) {
                       <Card>
                         <Card.Body>
                           <Row>
-                            <Col>{todo.complete ? <strike>{todo.task}</strike> : <p>{todo.task}</p>}</Col>
+                            <Col>
+                              <p>{todo.complete ? <strike>{todo.task}</strike> : <span>{todo.task}</span>}</p>
+                            </Col>
                             <Col className="d-flex justify-content-end">
                               <Stack direction="horizontal">
                                 <CheckboxList onclick={() => updateList("done", todo.id)} />
@@ -155,10 +159,10 @@ function TodoList({ search }) {
                         <Card>
                           <Card.Body>
                             <Row>
-                              <Col>{data.task}</Col>
+                              <Col>{data.complete ? <strike>{data.task}</strike> : <span>{data.task}</span>}</Col>
                               <Col className="d-flex justify-content-end">
                                 <Stack direction="horizontal">
-                                  <CheckboxList />
+                                  <CheckboxList onclick={() => updateList("done", data.id)} />
                                   <ButtonEdit />
                                   <ButtonDelete onclick={() => updateList("delete", data.id)} />
                                 </Stack>
@@ -181,10 +185,12 @@ function TodoList({ search }) {
                         <Card>
                           <Card.Body>
                             <Row>
-                              <Col> {data.complete ? <strike>{data.task}</strike> : <p>{data.task}</p>}</Col>
+                              <Col>
+                                <p>{data.complete ? <strike>{data.task}</strike> : <span>{data.task}</span>}</p>
+                              </Col>
                               <Col className="d-flex justify-content-end">
                                 <Stack direction="horizontal" gap={3}>
-                                  <CheckboxList />
+                                  <CheckboxList onclick={() => updateList("done", data.id)} />
                                   <ButtonEdit />
                                   <ButtonDelete onclick={() => updateList("delete", data.id)} />
                                 </Stack>
